@@ -6,7 +6,7 @@
 - [x] lay out basic ui with mock data 
 - [x] clean up build process
 - [x] set up db 
-- [ ] attach db to UI 
+- [x] attach db to UI 
 - [ ] add auth 
 - [ ] add image upload 
 - [ ] error handling - sentry 
