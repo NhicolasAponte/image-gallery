@@ -7,7 +7,8 @@
 - [x] clean up build process
 - [x] set up db 
 - [x] attach db to UI 
-- [ ] add auth 
+- [x] add auth 
+- [ ] "taint" - server only
 - [ ] add image upload 
 - [ ] error handling - sentry 
 - [ ] routing/image page (parallel route)
