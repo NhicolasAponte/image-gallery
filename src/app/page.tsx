@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { db } from "~/server/db";
 
 // selected version for typescript to get auto-complete here 
@@ -17,22 +18,33 @@ export const dynamic = "force-dynamic"
 //   title: `Image ${index + 1}`,
 // }));
 
-export default async function HomePage() {
-
+async function ImageList(){
   const images = await db.query.images.findMany({
     orderBy: (model, { desc }) => desc(model.id),
   });
   console.log(images);
 
   return (
-    <main className="">
-      <div className="flex flex-wrap gap-4"> {/*  */}
-        {images.map((image, i) => (
-          <div key={i} className="w-48"> {/* all images match width */} 
-            <img src={image.url} alt="{image.title}" className="" />
-          </div>
-        ))}
+    <div className="flex flex-wrap gap-4"> {/*  */}
+    {images.map((image, i) => (
+      <div key={i} className="w-48"> {/* all images match width */} 
+        <img src={image.url} alt="{image.title}" className="" />
       </div>
+    ))}
+  </div>
+  )
+}
+
+export default async function HomePage() {
+
+  return (
+    <main className="flex flex-col items-center">
+      <SignedOut>
+        <div className="border rounded-md p-4 text-center w-fit">Sign in or Create an Account</div>
+      </SignedOut>
+      <SignedIn>
+        <ImageList/>
+      </SignedIn>
     </main>
   );
 }
