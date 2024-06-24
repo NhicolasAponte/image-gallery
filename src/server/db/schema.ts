@@ -18,6 +18,8 @@ import {
  */
 export const createTable = pgTableCreator((name) => `image-gallery_${name}`);
 
+// after creating a new table, use 'db push' to create the table in the database
+
 export const posts = createTable(
   "post",
   {
