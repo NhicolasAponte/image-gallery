@@ -1,5 +1,9 @@
 import { db } from "~/server/db";
 
+// selected version for typescript to get auto-complete here 
+// this way ts can pick up the nextjs completions 
+export const dynamic = "force-dynamic"
+
 const imgURLs = [
   "https://utfs.io/f/f6f38cd2-9dd9-4404-bd5e-171cc120c8df-22m3v2.jfif",
   "https://utfs.io/f/f1eb7b34-e472-4d6b-9920-3065860cb171-mljgyv.jpg",

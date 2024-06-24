@@ -13,3 +13,14 @@ corresponding github actions
 
 in package.json - enabled Turbopack 
 "dev": "next dev --turbo", 
+
+
+--- nextjs ---
+
+by default page content is cached on the server  
+- to get nextjs to treat a route as dynamic, you can do something 
+in the route like call headers() from 'next/headers' which can change every 
+time the user goes to this page so it forces the page to 
+be treated dynamically 
+- you can also explicitly make a page dynamic 
+export const dynamic = "force-dynamic"
