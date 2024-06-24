@@ -4,6 +4,7 @@
 
 - [x] set up deployment 
 - [x] lay out basic ui with mock data 
+- [x] clean up build process
 - [ ] set up db 
 - [ ] attach db to UI 
 - [ ] add auth 

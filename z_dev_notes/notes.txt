@@ -1,0 +1,15 @@
+xxxxxxxxxxxx config xxxxxxxxxxxxx
+
+in next.config.js - this is intended to speed up 
+the build process, but we do need to make the 
+corresponding github actions 
+
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+
+in package.json - enabled Turbopack 
+"dev": "next dev --turbo", 
