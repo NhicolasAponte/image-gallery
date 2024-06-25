@@ -10,6 +10,11 @@ await import("./src/env.js");
 // checking and linting
 /** @type {import("next").NextConfig} */
 const config = {
+//     Error: Invalid src prop (https://utfs.io/f/004d042b-9e07-48bd-8fb8-0844ab34af97-au325r.jpg) on `next/image`, hostname "utfs.io" is not configured under images in your `next.config.js`
+// See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+    images: {
+        remotePatterns: [{ hostname: "utfs.io"}],
+    },
     typescript: {
         ignoreBuildErrors: true,
     },
