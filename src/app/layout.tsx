@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { ClerkProvider } from "@clerk/nextjs";
 import TopNav from "./_components/TopNav";
+import "@uploadthing/react/styles.css";
 
 export const metadata = {
   title: "Image Gallery",
