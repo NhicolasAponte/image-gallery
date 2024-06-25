@@ -17,9 +17,11 @@ export const metadata = {
 
 
 export default function RootLayout({
-  children,
+  children, modal //had an error: modal is not a valid layout prop 
+  // then we created a folder called @modal and the error was resolved
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
@@ -36,6 +38,8 @@ export default function RootLayout({
         <body className="flex flex-col gap-6">
           <TopNav />
           {children}
+          {modal}
+          <div id="modal-root" />
         </body>
       </html>
     </ClerkProvider>

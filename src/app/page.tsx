@@ -1,5 +1,6 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
+import Link from "next/link";
 import { getImagesById } from "~/server/queries";
 
 // selected version for typescript to get auto-complete here
@@ -24,20 +25,19 @@ async function ImageList() {
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-4">
-      {" "}
-      {/*  */}
       {images.map((image) => (
         <div key={image.id} className="w-48">
-          {" "}
-          {/* all images match width */}
-          <Image
-            src={image.url}
-            alt="{image.title}"
-            className=""
-            width={250}
-            height={250}
-            style={{ objectFit: "contain"}}
-          />
+          <Link href={`/wallpapers/${image.id}`}>
+            {/* all images match width */}
+            <Image
+              src={image.url}
+              alt="{image.title}"
+              className=""
+              width={250}
+              height={250}
+              style={{ objectFit: "contain" }}
+            />
+          </Link>
         </div>
       ))}
     </div>
