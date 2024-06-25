@@ -24,3 +24,10 @@ time the user goes to this page so it forces the page to
 be treated dynamically 
 - you can also explicitly make a page dynamic 
 export const dynamic = "force-dynamic"
+
+
+--- sentry --- 
+error management 
+
+sentry doesn't support ESM syntax, which is how Next.JS initializes next.config.js file 
+- we need to change it to CJS syntax: require, and module exports 
