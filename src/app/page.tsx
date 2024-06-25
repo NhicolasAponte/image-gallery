@@ -1,5 +1,5 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { db } from "~/server/db";
+import { getImagesById } from "~/server/queries";
 
 // selected version for typescript to get auto-complete here 
 // this way ts can pick up the nextjs completions 
@@ -19,15 +19,12 @@ export const dynamic = "force-dynamic"
 // }));
 
 async function ImageList(){
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id),
-  });
-  console.log(images);
+  const images = await getImagesById();
 
   return (
     <div className="flex flex-wrap gap-4"> {/*  */}
-    {images.map((image, i) => (
-      <div key={i} className="w-48"> {/* all images match width */} 
+    {images.map((image) => (
+      <div key={image.id} className="w-48"> {/* all images match width */} 
         <img src={image.url} alt="{image.title}" className="" />
       </div>
     ))}
