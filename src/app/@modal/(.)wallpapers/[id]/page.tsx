@@ -1,4 +1,4 @@
-//import { Modal } from './modal';
+import { Modal } from './modal';
 
 import { getImageById } from "~/server/queries";
 
@@ -9,8 +9,8 @@ export default async function WallpaperModal({
 }) {
   const image = await getImageById(Number(imageID));
   return (
-    <div>
-      <img src={image.url} alt={image.name} />
-    </div>
+    <Modal>
+      <img src={image.url} alt={image.name} width={250}/>
+    </Modal>
   );
 }
