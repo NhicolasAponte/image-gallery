@@ -1,16 +1,14 @@
+import FullPageImageView from '~/components/full-image-page';
 import { Modal } from './modal';
 
-import { getImageById } from "~/server/queries";
-
-export default async function WallpaperModal({
-  params: { id: imageID },
+export default function WallpaperModal({
+  params: { id: imageId },
 }: {
   params: { id: string };
 }) {
-  const image = await getImageById(Number(imageID));
   return (
     <Modal>
-      <img src={image.url} alt={image.name} width={250}/>
+      <FullPageImageView imageId={Number(imageId)} />
     </Modal>
   );
 }
