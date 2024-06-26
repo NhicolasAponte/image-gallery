@@ -9,9 +9,9 @@
 - [x] attach db to UI 
 - [x] add auth 
 - [ ] "taint" - server only
-- [ ] add image upload 
-- [ ] error handling - sentry 
-- [ ] routing/image page (parallel route)
+- [x] add image upload 
+- [x] error handling - sentry 
+- [x] routing/image page (parallel route)
 - [ ] delete button (server actions) 
 - [ ] analytics - posthog 
 - [ ] ratelimiting - upstash  
