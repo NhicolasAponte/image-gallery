@@ -31,7 +31,7 @@ async function ImageList() {
             {/* all images match width */}
             <Image
               src={image.url}
-              alt="{image.title}"
+              alt={image.name}
               className=""
               width={250}
               height={250}
