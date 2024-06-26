@@ -6,6 +6,8 @@ export default async function FullPageImageView({
   imageId: number;
 }) {
   const image = await getImageById(imageId);
+  // div - min-w-0 no items center 
+  // flex-shrink flex justify-center
   return (
     <div className="flex h-full w-full items-center">
       <div className="flex-shrink border-r">

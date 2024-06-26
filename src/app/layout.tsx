@@ -14,19 +14,19 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-
-
 export default function RootLayout({
-  children, modal //had an error: modal is not a valid layout prop 
+  children,
+  modal, //had an error: modal is not a valid layout prop
   // then we created a folder called @modal and the error was resolved
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
+  // [auto,1fr] - first row auto, second row 1fr
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
-      <NextSSRPlugin
+        <NextSSRPlugin
           /**
            * The `extractRouterConfig` will extract **only** the route configs
            * from the router to prevent additional information from being
@@ -35,9 +35,11 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body className="flex flex-col gap-6">
-          <TopNav />
-          {children}
+        <body className="">
+          <div className="grid h-screen grid-rows-[auto,1fr]">
+            <TopNav />
+            <main className="overflow-y-scroll">{children}</main>
+          </div>
           {modal}
           <div id="modal-root" />
         </body>
