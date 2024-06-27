@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { usePostHog } from "posthog-js/react";
 import { toast } from "sonner";
 import { useUploadThing } from "~/utils/uploadthing";
 
@@ -83,6 +84,7 @@ function LoadingSpinnerIcon() {
 // window.makeToast = makeUploadToast;
 
 export default function CustomUploadButton() {
+  const posthog = usePostHog();
   const router = useRouter();
   // if we expect concurrent uploads, each with their own toast, we need to setup a
   // derived unique id for each toast
@@ -90,6 +92,7 @@ export default function CustomUploadButton() {
 
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin() {
+      posthog.capture("upload_started");
       toast.loading(
       <div className="flex gap-2 items-center ">
         <LoadingSpinnerIcon />
