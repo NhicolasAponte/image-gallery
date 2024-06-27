@@ -14,7 +14,7 @@ export async function getImagesById() {
     where: (model, { eq }) => eq(model.userId, user.userId),
     orderBy: (model, { desc }) => desc(model.id),
   });
-  console.log(images);
+  //console.log(images);
   return images;
 }
 
