@@ -31,3 +31,7 @@ error management
 
 sentry doesn't support ESM syntax, which is how Next.JS initializes next.config.js file 
 - we need to change it to CJS syntax: require, and module exports 
+
+
+---------- styling ---------- 
+fixed width will conflict with padding - if content is too close to a visible border, adding padding won't fix that unless you get rid of fixed width 
