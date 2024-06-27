@@ -25,8 +25,8 @@ async function ImageList() {
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-4 p-4">
-      {[...images, ...images, ...images, ...images, ...images, ...images].map((image) => (
-        <div key={image.id} className="w-48">
+      {[...images, ...images, ...images, ...images, ...images, ...images].map((image, i) => (
+        <div key={i} className="w-48">
           <Link href={`/wallpapers/${image.id}`}>
             {/* all images match width */}
             <Image
