@@ -1,3 +1,4 @@
+import "server-only";//make sure this only runs on server 
 import { PostHog } from 'posthog-node'
 
 function serverSideAnalytics() {
