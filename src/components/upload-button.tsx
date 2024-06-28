@@ -102,8 +102,18 @@ export default function CustomUploadButton() {
       //toast("Uploading...");
       //NOTE: look into sonner api to see what else we can do with the toast
     },
+    onUploadError(error) {
+      posthog.capture("upload_error", { error });
+      toast.dismiss(upLoadToastId);
+      toast.error("Upload failed", {
+        dismissible: true,
+      });
+    },
     onClientUploadComplete() {
-      toast.success("Upload complete", { id: upLoadToastId });
+      toast.success("Upload complete", { 
+        id: upLoadToastId,
+        duration: 1000
+      });
       router.refresh();
     },
   });
