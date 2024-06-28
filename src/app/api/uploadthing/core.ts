@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { db } from "~/server/db";
@@ -19,6 +19,11 @@ export const ourFileRouter = {
 
       // If you throw, the user will not be able to upload
       if (!user.userId) throw new UploadThingError("Unauthorized");
+
+      const fullUserData = await clerkClient.users.getUser(user.userId);// get full user data from clerk instead of the limited data from JWT token using auth() 
+      //  if you don't call await on the on the line above, you can call await on the constant itself
+      //if((await fullUserData).privateMetadata.canUpload === false) throw new UploadThingError("Unauthorized");
+      if(fullUserData?.privateMetadata?.["can-upload"] !== true) throw new UploadThingError("Not authorized to upload images");
 
       const { success } = await uploadRateLimit.limit(user.userId);
       if (!success) throw new UploadThingError("Rate limited");

@@ -35,3 +35,7 @@ sentry doesn't support ESM syntax, which is how Next.JS initializes next.config.
 
 ---------- styling ---------- 
 fixed width will conflict with padding - if content is too close to a visible border, adding padding won't fix that unless you get rid of fixed width 
+
+----------- js ---------- 
+this is how you tell js you are accessing a key in a json object 
+if(fullUserData?.privateMetadata?.["can-upload"] !== true)

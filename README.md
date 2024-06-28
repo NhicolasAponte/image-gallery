@@ -13,5 +13,5 @@
 - [x] error handling - sentry 
 - [x] routing/image page (parallel route)
 - [x] analytics - posthog 
-- [ ] delete button (server actions) 
-- [ ] ratelimiting - upstash  
+- [x] delete button (server actions) 
+- [x] ratelimiting - upstash  
